@@ -1,0 +1,22 @@
+#project in progress
+*.ipynb
+
+#data
+data/
+house-prices/
+
+#models
+*.pt
+
+#wandb files
+**/wandb/
+
+#python cache
+__pycache__/
+*.pyc
+
+#notebooks
+*.ipynb_checkpoints/
+
+#others
+.DS_Store
