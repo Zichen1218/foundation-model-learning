@@ -20,11 +20,11 @@ A from-scratch implementation of three CNN architectures on CIFAR-10, built to u
 cifar10-cnn/
 ├── run.py              # CLI entry point
 └── src/
-    ├── model.py        # ConvBlock, ResidualBlock, ShallowCNN, DeepCNN, ResNetStyle
-    ├── train.py        # train_one_epoch, evaluate, train_model
+    ├── config.py       # device, training hyperparameters
     ├── data.py         # dataset loading, transforms, DataLoaders
-    ├── plot.py         # RF visualization, sample plots
-    └── config.py       # device, training hyperparameters
+    ├── model.py        # ConvBlock, ResidualBlock, ShallowCNN, DeepCNN, ResNetStyle
+    ├── plot.py         # RF visualization, sample plots, feature maps, confusion matrix
+    └── train.py        # train_one_epoch, evaluate, train_model
 ```
 
 ---
@@ -33,19 +33,34 @@ cifar10-cnn/
 
 ```bash
 # Plot receptive field growth across blocks
-python run.py plot rf
+python run.py plot plot_rf_depth
 
 # Plot sample images from the dataset
-python run.py plot samples
+python run.py plot plot_samples
+
+# Compare architecture training curves
+python run.py plot compare_architecture
+
+# Compare kernel sizes (ablation)
+python run.py plot compare_kernel_size
+
+# Compare skip vs no-skip connections (ablation)
+python run.py plot compare_skip
+
+# Visualize first-layer feature maps (requires trained DeepCNN)
+python run.py plot visualize_feature_maps
+
+# Plot confusion matrix (requires trained ResNetStyle)
+python run.py plot plot_confusion_matrix
 
 # Train a model
-python run.py train shallow
-python run.py train deep
-python run.py train resnet
-python run.py train resnet_no_skip
+python run.py train ShallowCNN
+python run.py train DeepCNN
+python run.py train ResNet
+python run.py train ResNet_NoSkip
 
-# Train with custom kernel size (ablation)
-python run.py train kernel --ks 5
+# Train with kernel sizes 1, 3, and 5 (all three run together)
+python run.py train Customkernel
 ```
 
 ---
