@@ -1,5 +1,5 @@
 #project in progress
-*.ipynb
+3_transformer.ipynb
 
 #data
 data/
@@ -7,6 +7,7 @@ house-prices/
 
 #models
 *.pt
+!2.CNN for CIFAR-10/results/*.pt
 
 #wandb files
 **/wandb/
