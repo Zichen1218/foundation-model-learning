@@ -20,3 +20,5 @@ __pycache__/
 
 #others
 .DS_Store
+#API-Key
+*.env
